@@ -187,6 +187,13 @@ server_host_remove.rule=/subsystem=undertow/server=${name(../..)}/host=${name(.)
 server_host_remove.refresh=true
 server_host_remove.precedence=250
 
+# /subsystem=undertow/server=default-server/host=default-host/location="/test":add(handler="myHandler")
+#handlerConfig_file_add.rule=/subsystem=undertow/configuration=handler/file=${name(.)}:add(path=${value(path)} ${if-defined (directory-listing),(,directory-listing=${value(directory-listing)})})#
+match.server_host_location_add=add:/server/*/host/*/location/*
+server_host_location_add.rule=/subsystem=undertow/server=${name(../../../..)}/host=${name(../..)}/location=${name(.)}:add(handler=${value(handler)})
+server_host_location_add.precedence=254
+server_host_location_add.refresh=true
+
 match.server_host_filter-ref_add=add:/server/*/host/*/filter-ref/*
 server_host_filter-ref_add.rule=/subsystem=undertow/server=${name(../../../..)}/host=${name(../..)}/filter-ref=${name(.)}:add
 server_host_filter-ref_add.precedence=255

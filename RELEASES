@@ -1,5 +1,7 @@
 v2.12.2:
 - makes 'driver-xa-datasource-class-name' property optional in JDBC driver defintion
+- Add jcliff script to dist tar
+- Windows integration
 v2.12.1:
 - Minor fix, add jcliff script to tar
 v2.12.0:
